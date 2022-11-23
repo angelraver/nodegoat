@@ -82,22 +82,19 @@ MongoClient.connect(db, (err, db) => {
         secret: cookieSecret,
         // Both mandatory in Express v4
         saveUninitialized: true,
-        resave: true
+        resave: true,
         /*
         // Fix for A5 - Security MisConfig
         // Use generic cookie name
         key: "sessionId",
         */
 
-        /*
         // Fix for A3 - XSS
-        // TODO: Add "maxAge"
         cookie: {
             httpOnly: true
             // Remember to start an HTTPS server to get this working
             // secure: true
         }
-        */
 
     }));
 
@@ -131,12 +128,8 @@ MongoClient.connect(db, (err, db) => {
 
     // Template system setup
     swig.setDefaults({
-        // Autoescape disabled
-        autoescape: false
-        /*
         // Fix for A3 - XSS, enable auto escaping
         autoescape: true // default value
-        */
     });
 
     // Insecure HTTP connection
