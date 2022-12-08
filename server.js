@@ -86,9 +86,10 @@ MongoClient.connect(db, (err, db) => {
 
         // Fix for A3 - XSS
         cookie: {
-            httpOnly: true
+            httpOnly: true,
             // Remember to start an HTTPS server to get this working
-            // secure: true
+            secure: true,
+            maxAge: 86400000 // 1 day in ms
         }
 
     }));
