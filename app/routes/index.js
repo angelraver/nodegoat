@@ -74,12 +74,14 @@ const index = (app, db) => {
         return res.redirect(req.query.url);
     });
 
+    /* Fix for A10 - delete an unnecessary redirection that exposes a vulnerability
     // Handle redirect for learning resources link
     app.get("/tutorial", (req, res) => {
         return res.render("tutorial/a1", {
             environmentalScripts
         });
     });
+    */
 
     app.get("/tutorial/:page", (req, res) => {
         const {
